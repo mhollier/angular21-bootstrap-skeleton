@@ -31,48 +31,56 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
+            ],
+            "polyfills": [
+              "@angular/localize/init"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules"
+              ]
             }
-          },
-          "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "angular21-skeleton:build:production"
-            },
-            "development": {
-              "buildTarget": "angular21-skeleton:build:development"
-            }
+        "configurations": {
+          "production": {
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kB",
+                "maximumError": "1MB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "4kB",
+                "maximumError": "8kB"
+              }
+            ],
+            "outputHashing": "all"
           },
-          "defaultConfiguration": "development"
+          "development": {
+            "optimization": false,
+            "extractLicenses": false,
+            "sourceMap": true
+          }
         },
-        "test": {
-          "builder": "@angular/build:unit-test"
-        }
+        "defaultConfiguration": "production"
+      },
+      "serve": {
+        "builder": "@angular/build:dev-server",
+        "configurations": {
+          "production": {
+            "buildTarget": "angular21-skeleton:build:production"
+          },
+          "development": {
+            "buildTarget": "angular21-skeleton:build:development"
+          }
+        },
+        "defaultConfiguration": "development"
+      },
+      "test": {
+        "builder": "@angular/build:unit-test"
       }
     }
   }
+}
 }
